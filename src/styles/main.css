@@ -1,0 +1,23 @@
+@font-face {
+    font-family: "undertale-font";
+    src: url("../assets/DeterminationMonoWebRegular-Z5oq.ttf");
+}
+
+main{
+  margin: 10px;
+  background-color: rgb(42, 116, 165);
+  font-family: "undertale-font";
+}
+
+.tabla-puntuacion{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    font-size: 20px;
+    color: #F9FF10;
+}
+
+.contenedor-tarjetas{
+    background-color: #a3a810;
+}

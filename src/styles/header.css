@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "undertale-font-header";
+    src: url("../assets/undertale.ttf");
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    font-family: "undertale-font-header";
+    background-color: #000000;
+}
