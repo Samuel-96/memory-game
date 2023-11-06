@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #3b3b3b;
   
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,6 +17,7 @@
 #root{
   width: 100vw;
   cursor: url('/src/assets/cursor.cur'), auto;
+  background-color: #3b3b3b;
 }
 
 a {
@@ -33,6 +34,7 @@ body {
   margin: 0px;
   display: flex;
   justify-content: center;
+
   background-color: #3b3b3b;
   height: 100vh;
   width: 100vw;
