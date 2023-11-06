@@ -25,9 +25,11 @@ main{
     justify-content: center;
     gap: 30px;
     background-color: #3b3b3b;
+    color: black;
 }
 
 .tarjeta{
+    color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
