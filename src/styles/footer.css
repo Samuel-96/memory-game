@@ -10,16 +10,15 @@ footer{
     align-items: center;
     justify-content: center;
     gap: 10px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
     background-color: #000000;
-    height: auto;
+    height: 70px;
     width: 100vw;
     color: #fff;
     font-weight: bold;
     font-size: 1.4rem;
+    position: fixed;
+    bottom: 0;
+    margin-top: 10px;
 }
 
 footer img{

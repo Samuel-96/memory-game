@@ -4,6 +4,8 @@ import Undyne from "./assets/undyne.gif"
 import Flowey from "./assets/flowey.gif"
 import Muffet from "./assets/muffet.gif"
 import Asgore from "./assets/asgore.gif"
+import Alphys from "./assets/alphys.gif"
+import Gaster from "./assets/gaster.gif"
 
 export default function datosPersonajes(){
     return [
@@ -41,6 +43,18 @@ export default function datosPersonajes(){
             id: 5,
             nombre: "Asgore",
             url: Asgore
+        },
+
+        {
+            id: 6,
+            nombre: "Alphys",
+            url: Alphys
+        },
+
+        {
+            id: 7,
+            nombre: "Gaster",
+            url: Gaster
         },
     ]
 }

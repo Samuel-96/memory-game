@@ -3,8 +3,11 @@ import { useState } from "react"
 import "../styles/main.css"
 import Tarjeta from "./Tarjeta";
 import datosPersonajes from "../data";
+
 let cont = 0;
-export default function Main(){
+let puntuacionActual = 0;
+
+export default function Main({dificultad}){
     const datos = datosPersonajes();
     
     const [tarjetas, setTarjetas] = useState(datos);
@@ -12,6 +15,8 @@ export default function Main(){
 
     function handleClick(nombre) {
 
+        document.querySelector(".dificultad").style.display = "none"
+        
         if(cont === tarjetas.length){
             alert("Has ganado");
             location.reload();
@@ -20,6 +25,9 @@ export default function Main(){
         if (nombreSeleccionado.includes(nombre)) {
             //si ya esta seleccionado el pj reiniciamos el contador, vaciamos lo pjs seleccionados y mezclamos de nuevo
             alert("Ya seleccionado");
+            if(cont > puntuacionActual){
+                puntuacionActual = cont;
+            }
             cont = 0;
             setNombreSeleccionado([]);
             const datosOrdenados = [...tarjetas].sort(() => Math.random() - 0.5);
@@ -29,7 +37,6 @@ export default function Main(){
         else {
             cont++;
             setNombreSeleccionado([...nombreSeleccionado,nombre]);
-
             const datosOrdenados = [...tarjetas].sort(() => Math.random() - 0.5);
             setTarjetas(datosOrdenados);
         }
@@ -44,7 +51,7 @@ export default function Main(){
         <main>
             <div className="tabla-puntuacion">
                 <h2 id="puntuacion-actual">Puntuación actual: {cont}</h2>
-                <h2 id="puntuacion-maxima">Mejor puntuación: {} </h2>
+                <h2 id="puntuacion-maxima">Mejor puntuación: {puntuacionActual} </h2>
             </div>
 
         <div className="contenedor-tarjetas">

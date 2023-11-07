@@ -5,7 +5,16 @@
 
 header{
     display: flex;
+    flex-direction: column;
+    text-align: center;
     justify-content: center;
     font-family: "undertale-font-header";
     background-color: #000000;
+}
+
+.dificultad{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 5px;
 }
