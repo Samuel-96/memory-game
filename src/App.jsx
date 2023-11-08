@@ -1,20 +1,30 @@
 import './App.css'
 import Header from './components/Header'
 import Main from "./components/Main"
-import Footer from "./components/Footer"
 import Mensaje from './components/Mensaje'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import datosPersonajes from './data'
 
 function App() {
 
   const [dificultad, setDificultad] = useState("normal");
+  const [personajes, setPersonajes] = useState([]);
+
+  useEffect(() => {
+    const cargarDatos = () => {
+      const datos = datosPersonajes(dificultad);
+
+      setPersonajes(datos);
+    };
+
+    cargarDatos();
+  }, [dificultad]);
 
   return (
     <div className='app'>
       <Header dificultad={dificultad} setDificultad={setDificultad}/>
       <Mensaje />
-      <Main dificultad={dificultad}/>
-      <Footer />
+      <Main datos={personajes} dificultad={dificultad}/>
     </div>
   )
 }

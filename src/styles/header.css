@@ -12,9 +12,30 @@ header{
     background-color: #000000;
 }
 
+.titulo{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    color: #F9FF10;
+}
+
+.datos-creador{
+    display: flex;
+    margin: 10px;
+    align-items: center;
+}
+
 .dificultad{
     display: flex;
     gap: 10px;
     justify-content: center;
     margin: 5px;
 }
+
+img{
+    width: 60px;
+    height: 60px;
+    
+}
+

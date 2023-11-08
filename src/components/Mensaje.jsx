@@ -9,7 +9,7 @@ export default function Mensaje(){
     return(
         <div id="overlay" onClick={handleClick}>
             <div id="mensaje">
-            <p className="text">¡Bienvenido al juego de memoria! Haz clic en las cartas, pero recuerda, no hagas clic en la misma carta dos veces. ¡Stay determined!</p>
+            <p className="text">¡Bienvenido al juego de memoria! Haz clic en las cartas únicas, pero recuerda, no hagas clic en la misma carta dos veces. ¡Stay determined!</p>
             </div>
         </div>
     )

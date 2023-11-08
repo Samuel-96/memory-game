@@ -1,16 +1,18 @@
 //IMPORTS
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import "../styles/main.css"
 import Tarjeta from "./Tarjeta";
-import datosPersonajes from "../data";
 
 let cont = 0;
 let puntuacionActual = 0;
+//let datos;
 
-export default function Main({dificultad}){
-    const datos = datosPersonajes();
-    
-    const [tarjetas, setTarjetas] = useState(datos);
+export default function Main({datos, dificultad}){
+
+    const [tarjetas, setTarjetas] = useState([]);
+    useEffect(() => {
+        setTarjetas(datos);
+      }, [datos]);
     const [nombreSeleccionado, setNombreSeleccionado] = useState([]);
 
     function handleClick(nombre) {
@@ -54,52 +56,12 @@ export default function Main({dificultad}){
                 <h2 id="puntuacion-maxima">Mejor puntuación: {puntuacionActual} </h2>
             </div>
 
-        <div className="contenedor-tarjetas">
-            {tarjetas.map((tarjeta) => 
-                <Tarjeta key={tarjeta.id} id={tarjeta.id} nombre={tarjeta.nombre} imagen={tarjeta.url} handleClick={() => handleClick(tarjeta.nombre)}/>
-            )}
-        </div>
+            <div className={`contenedor-tarjetas${dificultad === "dificil" ? " dificil" : ""}`}>
+                {tarjetas.map((tarjeta) => (
+                    <Tarjeta key={tarjeta.id} id={tarjeta.id} nombre={tarjeta.nombre} imagen={tarjeta.url} handleClick={() => handleClick(tarjeta.nombre)}/>
+                ))}
+            </div>
             
         </main>
     )
 }
-
-    /*
-    //con useEffect llamamos a la api y cargamos los datos de las tarjetas
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const dataSans = await obtenerDatosApi("sans pixel");
-                const dataPapyrus = await obtenerDatosApi("papyrus undertale pixel");
-
-                setTarjetas([...tarjetas, dataSans, dataPapyrus]);
-
-            } catch (error) {
-                console.error(error);
-            }
-        }
-
-        fetchData();
-    }, []);
-    
-
-    async function obtenerDatosApi(busqueda) {
-        const conexion = "https://api.giphy.com/v1/gifs/translate?api_key=dkpMjVE3vSt5H9FVWmn9c8WuRVIlbqQ7&s=" + busqueda;
-
-        try {
-            const response = await fetch(conexion, { mode: "cors" });
-
-            if (!response.ok) {
-                throw new Error(`Error: ${response.status}`);
-            }
-
-            const gif = await response.json();
-
-            return { id: gif.data.id, nombre: busqueda, url: gif.data.images.original.url };
-        } 
-        
-        catch (error) {
-            throw new Error(`Fetch error: ${error}`);
-        }
-    }
-    */

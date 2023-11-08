@@ -18,6 +18,8 @@
 }
 
 .text{
+    padding: 10px;
+    background-color: rgb(55, 58, 61);
     font-family: "undertale-font-header";
     position: absolute;
     top: 50%;
@@ -26,4 +28,18 @@
     color: white;
     transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
+    border-radius: 8px;
+}
+
+@media screen and (max-width: 767px) {
+    .text{
+        font-family: "undertale-font-header";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 17px;
+        color: white;
+        transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+    }
 }

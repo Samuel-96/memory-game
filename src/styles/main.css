@@ -1,11 +1,10 @@
 @font-face {
-    font-family: "undertale-font";
+    font-family: "undertale-font", sans-serif;
     src: url("../assets/DeterminationMonoWebRegular-Z5oq.ttf");
 }
 
 main{
-  margin: 10px;
-  font-family: "undertale-font";
+  font-family: "undertale-font", sans-serif;
 }
 
 .tabla-puntuacion{
@@ -21,12 +20,18 @@ main{
     padding: 10px;
     display: grid;
     flex-wrap: wrap;
-    grid-template-columns: repeat(4, auto);
-    grid-template-rows: 1fr 1fr 0.3fr;
     justify-content: center;
-    gap: 30px;
+    gap: 60px;
     background-color: #3b3b3b;
     color: black;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: 1fr 1fr 0.3fr;
+}
+
+/* Modo difícil */
+.contenedor-tarjetas.dificil {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: auto;
 }
 
 .tarjeta{
@@ -35,6 +40,7 @@ main{
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    align-items: center;
     background-color: white;
     text-transform: uppercase;
     font-size: 30px;
@@ -45,11 +51,92 @@ main{
 
 .tarjeta img{
     padding: 10px;
+    max-height: 210px;
+    max-width: 210px;
     height: 200px;
     width: 200px;
-    object-fit: cover;
 }
 
 .tarjeta:hover {
     transform: scale(1.1);
-  }
+}
+
+@media screen and (max-width: 767px) {
+    header{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        font-family: "undertale-font-header";
+        background-color: #000000;
+        font-size: 7px;
+    }
+    
+    .titulo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #F9FF10;
+        margin: 10px;
+    }
+
+    .titulo img{
+        height: 40px;
+        width: 40px;
+    }
+
+    .datos-creador{
+        display: flex;
+        margin: 10px;
+        align-items: center;
+    }
+
+    .tabla-puntuacion{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 30px;
+        font-size: 10px;
+        color: #F9FF10;
+    }
+
+    .contenedor-tarjetas{
+        padding: 2px;
+        display: grid;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        background-color: #3b3b3b;
+        color: black;
+        grid-template-columns: repeat(4, auto);
+        grid-template-rows: 1fr 1fr ;
+    }
+
+    .contenedor-tarjetas.dificil {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-template-rows: auto;
+    }
+
+    .tarjeta{
+        color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        background-color: white;
+        text-transform: uppercase;
+        font-size: 20px;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: transform 0.15s ease-in-out;
+    }
+    
+    .tarjeta img{
+        padding: 10px;
+        max-height: 90px;
+        max-width: 90px;
+        height: 100px;
+        width: 100px;
+    }
+}
